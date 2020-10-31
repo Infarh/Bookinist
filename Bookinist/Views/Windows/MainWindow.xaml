@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookinist"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
-        Title="{Binding Title}" 
-        Height="450" Width="800">
+        Title="{Binding Title}"
+        Width="800" Height="450">
     <Grid>
 
     </Grid>
