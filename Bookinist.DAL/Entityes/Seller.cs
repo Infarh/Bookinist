@@ -2,5 +2,8 @@
 
 namespace Bookinist.DAL.Entityes
 {
-    public class Seller : Person { }
+    public class Seller : Person
+    {
+        public override string ToString() => $"Продавец {Surname} {Name} {Patronymic}";
+    }
 }

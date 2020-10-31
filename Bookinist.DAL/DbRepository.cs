@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bookinist.DAL
 {
-    class DbRepository<T> : IRepository<T> where T : Entity, new()
+    internal class DbRepository<T> : IRepository<T> where T : Entity, new()
     {
         private readonly BookinistDB _db;
         private readonly DbSet<T> _Set;
