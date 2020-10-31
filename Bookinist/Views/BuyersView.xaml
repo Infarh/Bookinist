@@ -7,6 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Покупатели"
+                   FontSize="30" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="1"/>
+            </TextBlock.Effect>
+        </TextBlock>
     </Grid>
 </UserControl>

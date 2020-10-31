@@ -9,15 +9,22 @@
         Width="800" Height="450">
     <DockPanel>
         <Menu IsMainMenu="True">
-            <MenuItem Header="Покупатели"/>
-            <MenuItem Header="Книги"/>
-            <MenuItem Header="Статистика"/>
+            <MenuItem Header="Покупатели" Command="{Binding ShowBuyersViewCommand}"/>
+            <MenuItem Header="Книги" Command="{Binding ShowBooksViewCommand}"/>
+            <MenuItem Header="Статистика" Command="{Binding ShowStatisticViewCommand}"/>
         </Menu>
         <StatusBar>
             <StatusBarItem>Готов</StatusBarItem>
         </StatusBar>
         <Grid>
-
+            <!--<Grid.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="../../Templates/ModelMainView.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </Grid.Resources>-->
+            <ContentControl Content="{Binding CurrentModel}"/>
         </Grid>
     </DockPanel>
 </Window>
