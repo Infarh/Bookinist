@@ -12,6 +12,7 @@ namespace Bookinist.ViewModels
         private readonly IRepository<Book> _Books;
         private readonly IRepository<Seller> _Sellers;
         private readonly IRepository<Buyer> _Buyers;
+        private readonly IRepository<Deal> _Deals;
         private readonly ISalesService _SalesService;
 
         #region Title : string - Заголовок
@@ -90,7 +91,8 @@ namespace Bookinist.ViewModels
         private void OnShowStatisticViewCommandExecuted()
         {
             CurrentModel = new StatisticViewModel(
-                _Books, _Buyers, _Sellers
+                _Books, _Buyers, _Sellers,
+                _Deals
                 );
         }
 
@@ -100,11 +102,13 @@ namespace Bookinist.ViewModels
             IRepository<Book> Books,
             IRepository<Seller> Sellers,
             IRepository<Buyer> Buyers,
+            IRepository<Deal> Deals,
             ISalesService SalesService)
         {
             _Books = Books;
             _Sellers = Sellers;
             _Buyers = Buyers;
+            _Deals = Deals;
             _SalesService = SalesService;
         }
 
