@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using Bookinist.DAL.Context;
 using Bookinist.DAL.Entityes;
 using Bookinist.Interfaces;
 using Bookinist.Services.Interfaces;
@@ -9,6 +10,7 @@ namespace Bookinist.ViewModels
 {
     class MainWindowViewModel : ViewModel
     {
+        private readonly BookinistDB _db;
         private readonly IRepository<Book> _Books;
         private readonly IRepository<Seller> _Sellers;
         private readonly IRepository<Buyer> _Buyers;
@@ -99,12 +101,14 @@ namespace Bookinist.ViewModels
         #endregion
 
         public MainWindowViewModel(
+            BookinistDB db,
             IRepository<Book> Books,
             IRepository<Seller> Sellers,
             IRepository<Buyer> Buyers,
             IRepository<Deal> Deals,
             ISalesService SalesService)
         {
+            _db = db;
             _Books = Books;
             _Sellers = Sellers;
             _Buyers = Buyers;

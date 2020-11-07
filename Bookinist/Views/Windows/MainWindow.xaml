@@ -10,7 +10,7 @@
         Width="800" Height="450">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding ShowBooksViewCommand}"/>
+            <i:InvokeCommandAction Command="{Binding ShowStatisticViewCommand}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <DockPanel>

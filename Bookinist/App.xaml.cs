@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using Bookinist.DAL.Context;
 using Bookinist.Data;
 using Bookinist.Services;
 using Bookinist.ViewModels;
@@ -9,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace Bookinist
 {
-    public partial class App : Application
+    public partial class App
     {
         private static IHost __Host;
 
@@ -29,7 +28,7 @@ namespace Bookinist
             var host = Host;
 
             using(var scope = Services.CreateScope())
-                await scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync();
+                scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync().Wait();
 
             base.OnStartup(e);
             await host.StartAsync();

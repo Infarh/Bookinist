@@ -10,23 +10,23 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bookinist.DAL.Migrations
 {
     [DbContext(typeof(BookinistDB))]
-    [Migration("20201031160456_Initial")]
+    [Migration("20201107144853_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.9")
+                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "5.0.0-rc.2.20475.6");
 
             modelBuilder.Entity("Bookinist.DAL.Entityes.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
@@ -47,7 +47,7 @@ namespace Bookinist.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -69,7 +69,7 @@ namespace Bookinist.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -85,7 +85,7 @@ namespace Bookinist.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<int?>("BookId")
                         .HasColumnType("int");
@@ -115,7 +115,7 @@ namespace Bookinist.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -137,6 +137,8 @@ namespace Bookinist.DAL.Migrations
                     b.HasOne("Bookinist.DAL.Entityes.Category", "Category")
                         .WithMany("Books")
                         .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Bookinist.DAL.Entityes.Deal", b =>
@@ -152,6 +154,17 @@ namespace Bookinist.DAL.Migrations
                     b.HasOne("Bookinist.DAL.Entityes.Seller", "Seller")
                         .WithMany()
                         .HasForeignKey("SellerId");
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Buyer");
+
+                    b.Navigation("Seller");
+                });
+
+            modelBuilder.Entity("Bookinist.DAL.Entityes.Category", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

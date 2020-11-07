@@ -15,6 +15,9 @@ namespace Bookinist.DAL.Context
 
         public DbSet<Deal> Deals { get; set; }
 
-        public BookinistDB(DbContextOptions<BookinistDB> options) : base(options) { }
+        public BookinistDB(DbContextOptions<BookinistDB> options) : base(options)
+        {
+            
+        }
     }
 }

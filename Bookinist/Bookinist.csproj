@@ -9,19 +9,18 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\Commands\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MathCore.WPF" Version="0.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.0-rc.2.20475.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-rc.2.20475.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0-rc.2.20475.6">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" Version="3.1.9" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" Version="5.0.0-rc.2.20478.4" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0-rc.2.20475.5" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
   </ItemGroup>
 

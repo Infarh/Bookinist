@@ -10,11 +10,11 @@ namespace Bookinist.DAL.Migrations
                 name: "Buyers",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    Surname = table.Column<string>(nullable: true),
-                    Patronymic = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Patronymic = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -25,9 +25,9 @@ namespace Bookinist.DAL.Migrations
                 name: "Categorys",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -38,11 +38,11 @@ namespace Bookinist.DAL.Migrations
                 name: "Sellers",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    Surname = table.Column<string>(nullable: true),
-                    Patronymic = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Patronymic = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -53,10 +53,10 @@ namespace Bookinist.DAL.Migrations
                 name: "Books",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: true)
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,12 +73,12 @@ namespace Bookinist.DAL.Migrations
                 name: "Deals",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    BookId = table.Column<int>(nullable: true),
-                    SellerId = table.Column<int>(nullable: true),
-                    BuyerId = table.Column<int>(nullable: true)
+                    BookId = table.Column<int>(type: "int", nullable: true),
+                    SellerId = table.Column<int>(type: "int", nullable: true),
+                    BuyerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
