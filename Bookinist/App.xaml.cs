@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
-using Bookinist.DAL.Context;
 using Bookinist.Data;
 using Bookinist.Services;
 using Bookinist.ViewModels;
@@ -9,8 +9,20 @@ using Microsoft.Extensions.Hosting;
 
 namespace Bookinist
 {
-    public partial class App : Application
+    public partial class App
     {
+        public static Window ActiveWindow => Application.Current.Windows
+               .OfType<Window>()
+               .FirstOrDefault(w => w.IsActive);
+
+        public static Window FocusedWindow => Application.Current.Windows
+           .OfType<Window>()
+           .FirstOrDefault(w => w.IsFocused);
+
+        public static Window CurrentWindow => FocusedWindow ?? ActiveWindow;
+
+        public static bool IsDesignTime { get; private set; } = true;
+
         private static IHost __Host;
 
         public static IHost Host => __Host
@@ -26,10 +38,12 @@ namespace Bookinist
 
         protected override async void OnStartup(StartupEventArgs e)
         {
+            IsDesignTime = false;
+
             var host = Host;
 
             using(var scope = Services.CreateScope())
-                await scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync();
+                scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync().Wait();
 
             base.OnStartup(e);
             await host.StartAsync();

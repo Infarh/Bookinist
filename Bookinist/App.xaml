@@ -7,6 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Infrastructure/Commands/AppCommands.xaml"/>
                 <ResourceDictionary Source="Styles/Main.xaml"/>
                 <ResourceDictionary Source="Templates/ModelMainView.xaml"/>
             </ResourceDictionary.MergedDictionaries>

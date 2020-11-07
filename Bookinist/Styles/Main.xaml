@@ -14,4 +14,14 @@
         <Setter Property="DockPanel.Dock" Value="Bottom"/>
     </Style>
 
+    <Style TargetType="DataGrid">
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="GridLinesVisibility" Value="Vertical"/>
+        <Setter Property="VerticalGridLinesBrush" Value="DarkGray"/>
+        <Setter Property="AlternatingRowBackground" Value="AliceBlue"/>
+        <Setter Property="HeadersVisibility" Value="Column"/>
+    </Style>
+
 </ResourceDictionary>

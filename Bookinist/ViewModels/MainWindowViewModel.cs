@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using Bookinist.DAL.Context;
 using Bookinist.DAL.Entityes;
 using Bookinist.Interfaces;
 using Bookinist.Services.Interfaces;
@@ -9,6 +10,7 @@ namespace Bookinist.ViewModels
 {
     class MainWindowViewModel : ViewModel
     {
+        private readonly IUserDialog _UserDialog;
         private readonly IRepository<Book> _Books;
         private readonly IRepository<Seller> _Sellers;
         private readonly IRepository<Buyer> _Buyers;
@@ -50,7 +52,7 @@ namespace Bookinist.ViewModels
         /// <summary>Логика выполнения - Отобразить представление книг</summary>
         private void OnShowBooksViewCommandExecuted()
         {
-            CurrentModel = new BooksViewModel(_Books);
+            CurrentModel = new BooksViewModel(_Books, _UserDialog);
         }
 
         #endregion
@@ -99,12 +101,14 @@ namespace Bookinist.ViewModels
         #endregion
 
         public MainWindowViewModel(
+            IUserDialog UserDialog,
             IRepository<Book> Books,
             IRepository<Seller> Sellers,
             IRepository<Buyer> Buyers,
             IRepository<Deal> Deals,
             ISalesService SalesService)
         {
+            _UserDialog = UserDialog;
             _Books = Books;
             _Sellers = Sellers;
             _Buyers = Buyers;
