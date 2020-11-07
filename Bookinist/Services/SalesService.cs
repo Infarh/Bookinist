@@ -38,5 +38,7 @@ namespace Bookinist.Services
 
             return await _Deals.AddAsync(deal);
         }
+
+
     }
 }
